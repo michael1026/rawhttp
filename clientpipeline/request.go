@@ -74,7 +74,7 @@ func (r *Request) Write(w *bufio.Writer) error {
 	for l, h := range r.Headers {
 		var err error
 
-		if l == len(r.Headers) && r.Method == http.MethodGet {
+		if l == len(r.Headers)-1 && r.Method == http.MethodGet {
 			_, err = fmt.Fprintf(w, "%s: %s", h.Key, h.Value)
 		} else if h.Value != "" {
 			_, err = fmt.Fprintf(w, "%s: %s\r\n", h.Key, h.Value)
