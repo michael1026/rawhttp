@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/projectdiscovery/rawhttp"
+	"github.com/michael1026/rawhttp"
 	"github.com/remeh/sizedwaitgroup"
 )
 

@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/projectdiscovery/rawhttp/client"
+	"github.com/michael1026/rawhttp/client"
 )
 
 var (

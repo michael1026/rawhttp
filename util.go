@@ -10,7 +10,7 @@ import (
 	stdurl "net/url"
 	"strings"
 
-	"github.com/projectdiscovery/rawhttp/client"
+	"github.com/michael1026/rawhttp/client"
 )
 
 // StatusError is a HTTP status error object

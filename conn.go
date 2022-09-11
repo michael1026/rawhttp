@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/projectdiscovery/rawhttp/client"
-	"github.com/projectdiscovery/rawhttp/proxy"
+	"github.com/michael1026/rawhttp/client"
+	"github.com/michael1026/rawhttp/proxy"
 )
 
 // Dialer can dial a remote HTTP server.
