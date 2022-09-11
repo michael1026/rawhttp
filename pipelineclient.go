@@ -6,7 +6,7 @@ import (
 	"net/http"
 	stdurl "net/url"
 
-	"github.com/projectdiscovery/rawhttp/clientpipeline"
+	"github.com/michael1026/rawhttp/clientpipeline"
 	retryablehttp "github.com/projectdiscovery/retryablehttp-go"
 )
 
