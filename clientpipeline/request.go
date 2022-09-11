@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"net/http"
 	"strings"
 
 	"github.com/projectdiscovery/rawhttp/client"
@@ -70,9 +71,12 @@ func (r *Request) Write(w *bufio.Writer) error {
 		return err
 	}
 
-	for _, h := range r.Headers {
+	for l, h := range r.Headers {
 		var err error
-		if h.Value != "" {
+
+		if l == len(r.Headers) && r.Method == http.MethodGet {
+			_, err = fmt.Fprintf(w, "%s: %s", h.Key, h.Value)
+		} else if h.Value != "" {
 			_, err = fmt.Fprintf(w, "%s: %s\r\n", h.Key, h.Value)
 		} else {
 			_, err = fmt.Fprintf(w, "%s\r\n", h.Key)
@@ -91,7 +95,7 @@ func (r *Request) Write(w *bufio.Writer) error {
 		}
 	}
 
-	if r.Body == nil {
+	if r.Body == nil && r.Method != http.MethodGet {
 		// doesn't actually start the body, just sends the terminating \r\n
 		_, err := fmt.Fprintf(w, client.NewLine)
 		return err
